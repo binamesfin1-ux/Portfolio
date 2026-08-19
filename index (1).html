@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b12" />
+    <meta name="description" content="BnexusAI — Portfolio of Biniam Mesfin, AI Developer and Full-Stack Engineer." />
+    <title>BnexusAI — Biniam Mesfin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg: #080b12;
+            --bg-soft: #0d111a;
+            --panel: rgba(17, 23, 35, .72);
+            --panel-solid: #111722;
+            --line: rgba(255, 255, 255, .10);
+            --line-bright: rgba(152, 255, 208, .34);
+            --text: #f4f7fb;
+            --muted: #8793a6;
+            --accent: #98ffd0;
+            --accent-2: #9aa8ff;
+            --warning: #f8ca82;
+            --radius: 24px;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text);
+            background:
+                radial-gradient(circle at 85% 5%, rgba(115, 130, 255, .14), transparent 25rem),
+                radial-gradient(circle at 8% 35%, rgba(50, 199, 151, .07), transparent 25rem),
+                var(--bg);
+            font-family: Manrope, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: .25;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin: auto;
+        }
+
+        .mono {
+            color: var(--accent);
+            font: 500 .72rem "DM Mono", monospace;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 26px;
+            height: 1px;
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        h1,
+        h2,
+        h3 {
+            letter-spacing: -.055em;
+            line-height: 1;
+        }
+
+        h1 {
+            font-size: clamp(3.4rem, 9vw, 7.8rem);
+            max-width: 850px;
+        }
+
+        h2 {
+            font-size: clamp(2.3rem, 5vw, 4.5rem);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .nav {
+            position: fixed;
+            z-index: 20;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(var(--max), calc(100% - 30px));
+            padding: 12px 15px 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: rgba(8, 11, 18, .72);
+            backdrop-filter: blur(20px);
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: -.05em;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta,
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            color: var(--text);
+            background: rgba(255, 255, 255, .04);
+            transition: .25s ease;
+        }
+
+        .button:hover,
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            border-color: var(--line-bright);
+            background: rgba(152, 255, 208, .09);
+        }
+
+        .button.primary {
+            color: #07100d;
+            background: var(--accent);
+            border-color: var(--accent);
+            font-weight: 800;
+        }
+
+        .button.primary:hover {
+            box-shadow: 0 10px 35px rgba(152, 255, 208, .22);
+        }
+
+        section {
+            padding: 130px 0;
+            position: relative;
+        }
+
+        .hero {
+            min-height: 850px;
+            padding-top: 210px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .hero-copy p {
+            max-width: 610px;
+            margin: 28px 0;
+            font-size: 1.05rem;
+        }
+
+        .hero-title em {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        .hero-actions,
+        .socials {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .socials {
+            margin-top: 26px;
+        }
+
+        .socials a {
+            color: var(--muted);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 4px;
+            font-size: .86rem;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .portrait-wrap {
+            position: relative;
+            width: min(100%, 390px);
+            justify-self: end;
+        }
+
+        .portrait-wrap::before {
+            content: "B / 001";
+            position: absolute;
+            top: -34px;
+            right: 0;
+            color: var(--accent);
+            font: .72rem "DM Mono";
+        }
+
+        .portrait {
+            position: relative;
+            aspect-ratio: .82;
+            overflow: hidden;
+            border: 1px solid var(--line-bright);
+            border-radius: 170px 170px 24px 24px;
+            background: linear-gradient(145deg, #192438, #0b1019);
+            box-shadow: 0 0 90px rgba(152, 255, 208, .09);
+        }
+
+        .portrait::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 55%, rgba(8, 11, 18, .8));
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(.82) contrast(1.06);
+        }
+
+        .portrait-label {
+            position: absolute;
+            z-index: 2;
+            left: 24px;
+            bottom: 22px;
+            font: .7rem "DM Mono";
+            color: var(--accent);
+            letter-spacing: .08em;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 44px;
+            left: 0;
+            color: var(--muted);
+            font: .68rem "DM Mono";
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .scroll-hint::before {
+            content: "";
+            display: inline-block;
+            width: 35px;
+            height: 1px;
+            margin-right: 12px;
+            vertical-align: middle;
+            background: var(--accent);
+        }
+
+        .core {
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            padding: 24px;
+            background:
+                linear-gradient(145deg, rgba(152, 255, 208, .08), transparent 42%),
+                var(--panel);
+            box-shadow: 0 0 80px rgba(152, 255, 208, .055);
+            backdrop-filter: blur(18px);
+        }
+
+        .core-head,
+        .core-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font: .68rem "DM Mono";
+        }
+
+        .status i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: .35;
+                transform: scale(.7);
+            }
+        }
+
+        .core-orb {
+            display: grid;
+            place-items: center;
+            width: 150px;
+            height: 150px;
+            margin: 35px auto;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(152, 255, 208, .2), transparent 65%);
+            box-shadow: 0 0 0 15px rgba(152, 255, 208, .035), 0 0 60px rgba(152, 255, 208, .18);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .core-orb strong {
+            font-size: 1.7rem;
+            letter-spacing: -.09em;
+        }
+
+        @keyframes float {
+            50% {
+                transform: translateY(-8px) rotate(4deg);
+            }
+        }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--line);
+        }
+
+        .core-stat {
+            padding: 15px 12px;
+            background: rgba(10, 15, 23, .85);
+        }
+
+        .core-stat small {
+            display: block;
+            color: var(--muted);
+            font: .63rem "DM Mono";
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .core-stat b {
+            font-size: .88rem;
+        }
+
+        .developer-info {
+            display: none;
+            margin-top: 14px;
+            padding: 15px;
+            border: 1px dashed var(--line-bright);
+            border-radius: 12px;
+            color: var(--muted);
+            font: .72rem/1.8 "DM Mono";
+        }
+
+        .developer-info.active {
+            display: block;
+        }
+
+        .section-intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 52px;
+        }
+
+        .section-intro p {
+            max-width: 430px;
+        }
+
+        .about-grid,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .glass {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--panel);
+            backdrop-filter: blur(16px);
+        }
+
+        .about-copy p+p {
+            margin-top: 18px;
+        }
+
+        .principles {
+            display: grid;
+            gap: 12px;
+        }
+
+        .principle {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+        }
+
+        .principle b {
+            color: var(--text);
+            font-size: .95rem;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .tab {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 10px 14px;
+            color: var(--muted);
+            background: transparent;
+            font-size: .8rem;
+        }
+
+        .tab.active,
+        .tab:hover {
+            color: #06100d;
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .025);
+            transition: .25s;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: var(--line-bright);
+        }
+
+        .skill span {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+            margin-top: 7px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .project {
+            min-height: 310px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(145deg, rgba(154, 168, 255, .08), transparent 45%),
+                var(--panel);
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: var(--line-bright);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+        }
+
+        .project-top,
+        .project-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .project-number {
+            color: var(--accent);
+            font: .7rem "DM Mono";
+        }
+
+        .project-arrow {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .project p {
+            margin-top: 12px;
+            font-size: .88rem;
+            max-width: 440px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            font: .65rem "DM Mono";
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .step {
+            min-height: 160px;
+            padding: 22px 14px;
+            border-right: 1px solid var(--line);
+        }
+
+        .step:last-child {
+            border: 0;
+        }
+
+        .step b {
+            display: block;
+            margin: 22px 0 9px;
+            font-size: .9rem;
+        }
+
+        .step p {
+            font-size: .75rem;
+            line-height: 1.6;
+        }
+
+        .lab {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .lab-map {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: radial-gradient(circle at center, rgba(152, 255, 208, .12), transparent 45%), var(--panel);
+        }
+
+        .lab-map::before,
+        .lab-map::after {
+            content: "";
+            position: absolute;
+            inset: 17%;
+            border: 1px dashed rgba(152, 255, 208, .25);
+            border-radius: 50%;
+        }
+
+        .lab-map::after {
+            inset: 30%;
+            transform: rotate(60deg);
+        }
+
+        .node {
+            position: absolute;
+            z-index: 2;
+            padding: 10px 13px;
+            border: 1px solid var(--line-bright);
+            border-radius: 10px;
+            color: var(--accent);
+            background: #101923;
+            font: .67rem "DM Mono";
+            transition: .25s;
+        }
+
+        .node:hover {
+            background: var(--accent);
+            color: #07100d;
+            transform: scale(1.06);
+        }
+
+        .node.center {
+            top: 42%;
+            left: 35%;
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        .node.n1 {
+            top: 12%;
+            left: 39%;
+        }
+
+        .node.n2 {
+            top: 30%;
+            right: 8%;
+        }
+
+        .node.n3 {
+            bottom: 18%;
+            right: 14%;
+        }
+
+        .node.n4 {
+            bottom: 10%;
+            left: 21%;
+        }
+
+        .node.n5 {
+            top: 38%;
+            left: 5%;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .service {
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--panel);
+        }
+
+        .service i {
+            display: block;
+            color: var(--accent);
+            font: 1rem "DM Mono";
+            margin-bottom: 30px;
+        }
+
+        .service p {
+            margin-top: 10px;
+            font-size: .82rem;
+        }
+
+        form {
+            display: grid;
+            gap: 14px;
+        }
+
+        label {
+            color: var(--muted);
+            font-size: .75rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-top: 7px;
+            padding: 15px;
+            color: var(--text);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            outline: none;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent);
+        }
+
+        textarea {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .contact-detail {
+            display: grid;
+            align-content: center;
+            gap: 26px;
+        }
+
+        .contact-detail a {
+            color: var(--accent);
+        }
+
+        .contact-detail a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font: .7rem "DM Mono";
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: none;
+            place-items: center;
+            padding: 20px;
+            background: rgba(3, 5, 9, .78);
+            backdrop-filter: blur(12px);
+        }
+
+        .modal.open {
+            display: grid;
+        }
+
+        .modal-card {
+            position: relative;
+            width: min(750px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 34px;
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            background: #101621;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            color: var(--text);
+            background: transparent;
+        }
+
+        .modal-card p {
+            margin: 18px 0;
+        }
+
+        .modal-section {
+            margin-top: 25px;
+        }
+
+        .modal-section h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font: .7rem "DM Mono";
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 820px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .about-grid,
+            .contact-grid,
+            .lab {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 150px;
+                min-height: auto;
+            }
+
+            .portrait-wrap {
+                justify-self: start;
+                width: min(100%, 330px);
+            }
+
+            .scroll-hint {
+                display: none;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .step:nth-child(n+3) {
+                border-top: 1px solid var(--line);
+            }
+
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: min(100% - 28px, var(--max));
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .hero {
+                gap: 55px;
+            }
+
+            .skill-list,
+            .services {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .glass,
+            .core,
+            .modal-card {
+                padding: 22px;
+            }
+
+            .core-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-intro {
+                display: block;
+            }
+
+            .section-intro p {
+                margin-top: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <a class="brand" href="#top">B<span>nexus</span>AI</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Start a conversation ↗️</a>
+    </nav>
+
+    <main id="top">
+        <section class="hero container">
+            <div class="hero-copy">
+                <div class="eyebrow mono">Independent digital builder / Ethiopia</div>
+                <h1 class="hero-title">Intelligence,<br /><em>engineered.</em></h1>
+                <p>
+                    I’m Biniam Mesfin — an AI developer and full-stack engineer building
+                    elegant, high-performance software from first principles.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="button primary">Explore my work ↘️</a>
+                    <a href="#contact" class="button">Contact me ↗️</a>
+                </div>
+
+                <div class="socials">
+                    <a href="https://github.com/binamesfin1-ux" target="_blank">GitHub ↗️</a>
+                    <a href="https://instagram.com/bina41201" target="_blank">Instagram ↗️</a>
+                    <a href="mailto:binamesfin1@gmail.com">Email ↗️</a>
+                </div>
+            </div>
+
+            <div class="portrait-wrap">
+                <div class="portrait">
+                    <img src="PSX_20250601_114512@1552372350.jpg" alt="Portrait of Biniam Mesfin" />
+                    <div class="portrait-label">BINIAM MESFIN / AI-DEV</div>
+                </div>
+            </div>
+
+            <div class="scroll-hint">Scroll to inspect system</div>
+        </section>
+
+        <section class="container">
+            <div class="core">
+                <div class="core-head">
+                    <div>
+                        <div class="mono">Signature interface</div>
+                        <h3 style="margin-top:8px;">BnexusAI Core</h3>
+                    </div>
+                    <div class="status"><i></i> SYSTEM ONLINE</div>
+                </div>
+
+                <div class="core-orb">
+                    <strong>BNX<span style="color:var(--accent)">.01</span></strong>
+                </div>
+
+                <div class="core-grid">
+                    <div class="core-stat"><small>AI engine</small><b>Ready</b></div>
+                    <div class="core-stat"><small>Projects</small><b>05+</b></div>
+                    <div class="core-stat"><small>Stack</small><b>Full-stack</b></div>
+                    <div class="core-stat"><small>Learning</small><b>∞ Active</b></div>
+                    <div class="core-stat"><small>Mode</small><b id="modeText">Creative</b></div>
+                    <div class="core-stat"><small>Latency</small><b>Low</b></div>
+                </div>
+
+                <div class="core-footer" style="margin-top:16px;">
+                    <span class="mono">Local-first intelligence layer</span>
+                    <button class="button" id="devMode">Enable developer mode</button>
+                </div>
+
+                <div class="developer-info" id="developerInfo">
+                    runtime: BnexusAI / v1.0.0<br />
+                    architecture: modular full-stack systems<br />
+                    inference: local LLM compatible / Ollama / Phi models<br />
+                    principles: privacy · performance · maintainability
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">01 / Identity</div>
+                    <h2>Young mind.<br />Serious systems.</h2>
+                </div>
+                <p>Building useful technology while completing Grade 12 at Nejo Ifa Boru Special Boarding School.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="glass about-copy">
+                    <p>
+                        I’m passionate about crafting elegant, high-performance applications
+                        with cutting-edge AI technology. My work moves between offline LLMs,
+                        reliable backend systems, and premium web interfaces.
+                    </p>
+                    <p>
+                        I believe great software should feel considered: fast when it matters,
+                        understandable when it grows, and useful in the real world. BnexusAI
+                        is my digital identity and experimental engineering lab.
+                    </p>
+                </div>
+
+                <div class="glass principles">
+                    <div class="principle"><b>Clean Architecture</b><span>01</span></div>
+                    <div class="principle"><b>Premium UI / UX</b><span>02</span></div>
+                    <div class="principle"><b>Offline-first thinking</b><span>03</span></div>
+                    <div class="principle"><b>Performance</b><span>04</span></div>
+                    <div class="principle"><b>Innovation</b><span>05</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">02 / Capabilities</div>
+                    <h2>Tools for the<br />next layer.</h2>
+                </div>
+                <p>A growing technical system spanning intelligent products, resilient backends, and thoughtful
+                    interfaces.</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-category="programming">Programming</button>
+                <button class="tab" data-category="ai">AI / ML</button>
+                <button class="tab" data-category="backend">Backend</button>
+                <button class="tab" data-category="frontend">Frontend</button>
+                <button class="tab" data-category="tools">Tools</button>
+            </div>
+
+            <div class="skill-list" id="skillList"></div>
+        </section>
+
+        <section id="projects" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">03 / Selected systems</div>
+                    <h2>Built to be<br /><span style="color:var(--accent)">useful.</span></h2>
+                </div>
+                <p>Click any system to inspect its product thinking, architecture, and technical direction.</p>
+            </div>
+
+            <div class="projects">
+                <article class="project" data-project="bnexus">
+                    <div class="project-top"><span class="project-number">01 — AI SYSTEM</span><span
+                            class="project-arrow">↗️</span></div>
+                    <div>
+                        <h3>BnexusAI</h3>
+                        <p>Offline AI assistant with local LLMs, persistent memory, and private local storage.</p>
+                    </div>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">Ollama</span><span
+                            class="tag">Local LLM</span></div>
+                </article>
+
+                <article class="project" data-project="results">
+                    <div class="project-top"><span class="project-number">02 — EDUCATION</span><span
+                            class="project-arrow">↗️</span></div>
+                    <div>
+                        <h3>Student Result Management</h3>
+                        <p>A school platform connecting administration, student portals, results, and analytics.</p>
+                    </div>
+                    <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span
+                            class="tag">Dashboard</span></div>
+                </article>
+
+                <article class="project" data-project="exams">
+                    <div class="project-top"><span class="project-number">03 — PLATFORM</span><span
+                            class="project-arrow">↗️</span></div>
+                    <div>
+                        <h3>Online Examination System</h3>
+                        <p>Secure exam experience with timers, automatic grading, randomization, and anti-cheating
+                            features.</p>
+                    </div>
+                    <div class="tags"><span class="tag">JavaScript</span><span class="tag">REST API</span><span
+                            class="tag">SQL</span></div>
+                </article>
+
+                <article class="project" data-project="messenger">
+                    <div class="project-top"><span class="project-number">04 — COMMUNICATION</span><span
+                            class="project-arrow">↗️</span></div>
+                    <div>
+                        <h3>Messenger Clone</h3>
+                        <p>Real-time messaging platform with authentication, notifications, and media sharing.</p>
+                    </div>
+                    <div class="tags"><span class="tag">Full-stack</span><span class="tag">Real-time</span><span
+                            class="tag">UI / UX</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="engineering" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">04 / Engineering protocol</div>
+                    <h2>From signal<br />to software.</h2>
+                </div>
+                <p>Every build starts with clarity, then earns its complexity through deliberate iteration.</p>
+            </div>
+
+            <div class="process">
+                <div class="step"><span class="mono">01</span><b>Idea</b>
+                    <p>Find the real problem beneath the request.</p>
+                </div>
+                <div class="step"><span class="mono">02</span><b>Architecture</b>
+                    <p>Shape a system that can grow cleanly.</p>
+                </div>
+                <div class="step"><span class="mono">03</span><b>Development</b>
+                    <p>Build focused, maintainable components.</p>
+                </div>
+                <div class="step"><span class="mono">04</span><b>Optimization</b>
+                    <p>Remove friction from every interaction.</p>
+                </div>
+                <div class="step"><span class="mono">05</span><b>Testing</b>
+                    <p>Verify behavior, resilience, and edge cases.</p>
+                </div>
+                <div class="step"><span class="mono">06</span><b>Deployment</b>
+                    <p>Ship a reliable product, not just code.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lab" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">05 / Experimental layer</div>
+                    <h2>Welcome to<br /><span style="color:var(--accent)">the AI lab.</span></h2>
+                </div>
+                <p>Exploring private, efficient, locally runnable intelligence for practical software.</p>
+            </div>
+
+            <div class="lab">
+                <div class="lab-map">
+                    <div class="node center">BNX CORE</div>
+                    <div class="node n1">Local LLMs</div>
+                    <div class="node n2">Ollama</div>
+                    <div class="node n3">AI Agents</div>
+                    <div class="node n4">NLP</div>
+                    <div class="node n5">Phi Models</div>
+                </div>
+
+                <div class="glass" style="display:grid;align-content:center;">
+                    <div class="mono">Current research interests</div>
+                    <h3 style="font-size:2rem;margin:18px 0;">Intelligence without unnecessary distance.</h3>
+                    <p>
+                        I’m interested in systems that can run close to the user:
+                        private assistants, efficient models, useful agent workflows,
+                        and interfaces that make complex AI feel simple.
+                    </p>
+                    <div class="tags" style="margin-top:25px;">
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">AI Chatbots</span>
+                        <span class="tag">Memory Systems</span>
+                        <span class="tag">Offline-first</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">06 / What I build</div>
+                    <h2>Useful by<br />design.</h2>
+                </div>
+            </div>
+
+            <div class="services">
+                <div class="service"><i>01 / AI</i>
+                    <h3>AI Application Development</h3>
+                    <p>Private assistants, chatbots, local model integrations, and intelligent workflows.</p>
+                </div>
+                <div class="service"><i>02 / CODE</i>
+                    <h3>Python Programming</h3>
+                    <p>Automation, application logic, APIs, data workflows, and practical software.</p>
+                </div>
+                <div class="service"><i>03 / WEB</i>
+                    <h3>Web Development</h3>
+                    <p>Responsive digital products with polished interfaces and strong foundations.</p>
+                </div>
+                <div class="service"><i>04 / DESKTOP</i>
+                    <h3>Desktop Applications</h3>
+                    <p>Focused tools designed for speed, control, and reliable offline usage.</p>
+                </div>
+                <div class="service"><i>05 / SYSTEMS</i>
+                    <h3>Backend Development</h3>
+                    <p>REST APIs, database design, authentication, and maintainable architecture.</p>
+                </div>
+                <div class="service"><i>06 / EXPERIENCE</i>
+                    <h3>UI/UX Design & Architecture</h3>
+                    <p>Clear information systems translated into memorable digital experiences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <div class="section-intro">
+                <div>
+                    <div class="eyebrow mono">07 / Open channel</div>
+                    <h2>Let’s build<br /><span style="color:var(--accent)">something.</span></h2>
+                </div>
+                <p>Have an idea, challenge, or system that needs a thoughtful technical partner?</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="glass">
+                    <form id="contactForm">
+                        <label>Name<input id="name" required placeholder="Your name" /></label>
+                        <label>Email<input id="email" type="email" required placeholder="you@example.com" /></label>
+                        <label>Message<textarea id="message" required
+                                placeholder="Tell me about the thing you want to build..."></textarea></label>
+                        <button class="button primary" type="submit">Send transmission ↗️</button>
+                    </form>
+                </div>
+
+                <div class="glass contact-detail">
+                    <div><span class="mono">Email</span><br /><a
+                            href="mailto:binamesfin1@gmail.com">binamesfin1@gmail.com</a></div>
+                    <div><span class="mono">Phone</span><br /><a href="tel:+251976726324">+251 97 672 6324</a></div>
+                    <div><span class="mono">Based in</span><br /><span>Ethiopia · Available globally</span></div>
+                    <div class="socials" style="margin:0;"><a href="https://github.com/binamesfin1-ux"
+                            target="_blank">GitHub ↗️</a><a href="https://instagram.com/bina41201"
+                            target="_blank">Instagram ↗️</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+            <span>© 2026 BnexusAI / Biniam Mesfin</span>
+            <span>Built with curiosity, discipline, and local intelligence.</span>
+        </div>
+    </footer>
+
+    <div class="modal" id="projectModal">
+        <div class="modal-card">
+            <button class="close" id="closeModal">×</button>
+            <div class="mono" id="modalType"></div>
+            <h2 id="modalTitle" style="font-size:3rem;margin-top:14px;"></h2>
+            <p id="modalDescription"></p>
+            <div class="modal-section">
+                <h4>Technologies</h4>
+                <div class="tags" id="modalTech"></div>
+            </div>
+            <div class="modal-section">
+                <h4>Core features</h4>
+                <p id="modalFeatures"></p>
+            </div>
+            <div class="modal-section">
+                <h4>Architecture direction</h4>
+                <p id="modalArchitecture"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const skills = {
+            programming: ["Python", "JavaScript", "PHP", "HTML5", "CSS3", "SQL"],
+            ai: ["Ollama", "Local LLMs", "Phi Models", "AI Agents", "NLP", "Prompt Engineering", "AI Chatbots"],
+            backend: ["REST APIs", "MySQL", "SQLite", "Database Design", "Architecture"],
+            frontend: ["Responsive Design", "UI/UX", "Animations", "Performance", "Accessibility"],
+            tools: ["VS Code", "Git / GitHub", "Figma", "Canva", "LM Studio"]
+        };
+
+        const projectData = {
+            bnexus: {
+                type: "01 / AI SYSTEM",
+                title: "BnexusAI",
+                description: "A private offline AI assistant designed around local inference, persistent memory, and a calm, useful user experience.",
+                tech: ["Python", "Ollama", "Phi Models", "Local Storage", "NLP"],
+                features: "Local conversations, memory-aware responses, model switching, private storage, and an extensible agent layer.",
+                architecture: "A modular local application separates the interface, inference adapter, memory layer, and application services so models can evolve independently."
+            },
+            results: {
+                type: "02 / EDUCATION",
+                title: "Student Result Management System",
+                description: "A school management platform that turns fragmented academic workflows into a clear operational dashboard.",
+                tech: ["PHP", "MySQL", "HTML5", "CSS3", "Analytics"],
+                features: "Admin dashboard, student portal, result publishing, class management, reporting, and performance analytics.",
+                architecture: "Role-based access sits above a relational data model, with separate workflows for administration, teachers, and students."
+            },
+            exams: {
+                type: "03 / PLATFORM",
+                title: "Online Examination System",
+                description: "A structured assessment platform designed to make digital examinations more secure, measurable, and accessible.",
+                tech: ["JavaScript", "REST APIs", "SQL", "Authentication"],
+                features: "Exam timers, automatic grading, question randomization, candidate authentication, result reporting, and anti-cheating controls.",
+                architecture: "An API-centered system coordinates exam sessions, randomized question sets, answer submission, scoring, and audit records."
+            },
+            messenger: {
+                type: "04 / COMMUNICATION",
+                title: "Messenger Clone",
+                description: "A real-time communication experience focused on dependable conversations and familiar, low-friction interactions.",
+                tech: ["Full-stack", "Authentication", "Real-time Events", "Media Uploads"],
+                features: "Secure authentication, conversations, notifications, online states, message history, and media sharing.",
+                architecture: "A responsive client communicates with a real-time backend while durable message data and media metadata remain persistently stored."
+            }
+        };
+
+        const skillList = document.getElementById("skillList");
+
+        function renderSkills(category) {
+            skillList.innerHTML = skills[category].map((skill, index) => `
+        <div class="skill">
+          <div class="mono">0${index + 1}</div>
+          <b>${skill}</b>
+          <span>${category.replace("/", " / ")} layer</span>
+        </div>
+      `).join("");
+        }
+
+        renderSkills("programming");
+
+        document.querySelectorAll(".tab").forEach(tab => {
+            tab.addEventListener("click", () => {
+                document.querySelector(".tab.active").classList.remove("active");
+                tab.classList.add("active");
+                renderSkills(tab.dataset.category);
+            });
+        });
+
+        document.getElementById("devMode").addEventListener("click", event => {
+            const info = document.getElementById("developerInfo");
+            const active = info.classList.toggle("active");
+            event.target.textContent = active ? "Disable developer mode" : "Enable developer mode";
+            document.getElementById("modeText").textContent = active ? "Developer" : "Creative";
+        });
+
+        const modal = document.getElementById("projectModal");
+
+        document.querySelectorAll(".project").forEach(card => {
+            card.addEventListener("click", () => {
+                const data = projectData[card.dataset.project];
+
+                document.getElementById("modalType").textContent = data.type;
+                document.getElementById("modalTitle").textContent = data.title;
+                document.getElementById("modalDescription").textContent = data.description;
+                document.getElementById("modalFeatures").textContent = data.features;
+                document.getElementById("modalArchitecture").textContent = data.architecture;
+                document.getElementById("modalTech").innerHTML = data.tech
+                    .map(item => `<span class="tag">${item}</span>`)
+                    .join("");
+
+                modal.classList.add("open");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        document.getElementById("closeModal").addEventListener("click", closeModal);
+        modal.addEventListener("click", event => {
+            if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeModal();
+        });
+
+        document.getElementById("contactForm").addEventListener("submit", event => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            const subject = encodeURIComponent(`Project inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+
+            window.location.href =
+                `mailto:binamesfin1@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+
+</html>
