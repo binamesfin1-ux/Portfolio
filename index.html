@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#080b12" />
+    <meta name="theme-color" content="#0a0e1a" />
     <meta name="description" content="BnexusAI — Portfolio of Biniam Mesfin, AI Developer and Full-Stack Engineer." />
     <title>BnexusAI — Biniam Mesfin</title>
 
@@ -13,20 +13,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         :root {
-            --bg: #080b12;
-            --bg-soft: #0d111a;
-            --panel: rgba(17, 23, 35, .72);
-            --panel-solid: #111722;
-            --line: rgba(255, 255, 255, .10);
-            --line-bright: rgba(152, 255, 208, .34);
-            --text: #f4f7fb;
-            --muted: #8793a6;
-            --accent: #98ffd0;
-            --accent-2: #9aa8ff;
-            --warning: #f8ca82;
+            --bg: #0a0e1a;
+            --bg-soft: #0f1424;
+            --bg-darker: #070a12;
+            --panel: rgba(20, 27, 45, .65);
+            --panel-solid: #151d33;
+            --line: rgba(255, 255, 255, .08);
+            --line-bright: rgba(100, 200, 255, .3);
+            --text: #f0f4fb;
+            --muted: #8b98b0;
+            --accent: #60c8ff;
+            --accent-2: #a78bfa;
+            --warning: #fca857;
             --radius: 24px;
             --max: 1180px;
         }
@@ -44,8 +46,9 @@
         body {
             color: var(--text);
             background:
-                radial-gradient(circle at 85% 5%, rgba(115, 130, 255, .14), transparent 25rem),
-                radial-gradient(circle at 8% 35%, rgba(50, 199, 151, .07), transparent 25rem),
+                radial-gradient(circle at 85% 5%, rgba(96, 200, 255, .12), transparent 25rem),
+                radial-gradient(circle at 8% 35%, rgba(167, 139, 250, .08), transparent 25rem),
+                radial-gradient(circle at 50% 50%, rgba(30, 40, 70, .1), transparent 40rem),
                 var(--bg);
             font-family: Manrope, sans-serif;
             overflow-x: hidden;
@@ -57,10 +60,10 @@
             position: fixed;
             inset: 0;
             z-index: -1;
-            opacity: .25;
+            opacity: .15;
             background-image:
-                linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
             background-size: 72px 72px;
             mask-image: linear-gradient(to bottom, black, transparent 80%);
         }
@@ -150,7 +153,7 @@
             align-items: center;
             border: 1px solid var(--line);
             border-radius: 18px;
-            background: rgba(8, 11, 18, .72);
+            background: rgba(10, 14, 26, .75);
             backdrop-filter: blur(20px);
         }
 
@@ -185,7 +188,7 @@
             border-radius: 12px;
             border: 1px solid var(--line);
             color: var(--text);
-            background: rgba(255, 255, 255, .04);
+            background: rgba(96, 200, 255, .08);
             transition: .25s ease;
         }
 
@@ -193,18 +196,18 @@
         .nav-cta:hover {
             transform: translateY(-3px);
             border-color: var(--line-bright);
-            background: rgba(152, 255, 208, .09);
+            background: rgba(96, 200, 255, .14);
         }
 
         .button.primary {
-            color: #07100d;
+            color: #070a12;
             background: var(--accent);
             border-color: var(--accent);
             font-weight: 800;
         }
 
         .button.primary:hover {
-            box-shadow: 0 10px 35px rgba(152, 255, 208, .22);
+            box-shadow: 0 10px 35px rgba(96, 200, 255, .25);
         }
 
         section {
@@ -244,15 +247,23 @@
         }
 
         .socials a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--muted);
             border-bottom: 1px solid var(--line);
-            padding-bottom: 4px;
+            padding: 4px 0;
             font-size: .86rem;
+            transition: .25s ease;
         }
 
         .socials a:hover {
             color: var(--accent);
             border-color: var(--accent);
+        }
+
+        .socials i {
+            font-size: 1.1rem;
         }
 
         .portrait-wrap {
@@ -276,15 +287,15 @@
             overflow: hidden;
             border: 1px solid var(--line-bright);
             border-radius: 170px 170px 24px 24px;
-            background: linear-gradient(145deg, #192438, #0b1019);
-            box-shadow: 0 0 90px rgba(152, 255, 208, .09);
+            background: linear-gradient(145deg, #1a2f4a, #0a1122);
+            box-shadow: 0 0 90px rgba(96, 200, 255, .08);
         }
 
         .portrait::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(transparent 55%, rgba(8, 11, 18, .8));
+            background: linear-gradient(transparent 55%, rgba(10, 14, 26, .8));
         }
 
         .portrait img {
@@ -329,9 +340,9 @@
             border-radius: var(--radius);
             padding: 24px;
             background:
-                linear-gradient(145deg, rgba(152, 255, 208, .08), transparent 42%),
+                linear-gradient(145deg, rgba(96, 200, 255, .07), transparent 42%),
                 var(--panel);
-            box-shadow: 0 0 80px rgba(152, 255, 208, .055);
+            box-shadow: 0 0 80px rgba(96, 200, 255, .04);
             backdrop-filter: blur(18px);
         }
 
@@ -375,8 +386,8 @@
             margin: 35px auto;
             border: 1px solid var(--accent);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(152, 255, 208, .2), transparent 65%);
-            box-shadow: 0 0 0 15px rgba(152, 255, 208, .035), 0 0 60px rgba(152, 255, 208, .18);
+            background: radial-gradient(circle, rgba(96, 200, 255, .15), transparent 65%);
+            box-shadow: 0 0 0 15px rgba(96, 200, 255, .03), 0 0 60px rgba(96, 200, 255, .15);
             animation: float 5s ease-in-out infinite;
         }
 
@@ -403,7 +414,7 @@
 
         .core-stat {
             padding: 15px 12px;
-            background: rgba(10, 15, 23, .85);
+            background: rgba(10, 14, 26, .9);
         }
 
         .core-stat small {
@@ -499,7 +510,7 @@
 
         .tab.active,
         .tab:hover {
-            color: #06100d;
+            color: #070a12;
             background: var(--accent);
             border-color: var(--accent);
         }
@@ -514,7 +525,7 @@
             padding: 18px;
             border: 1px solid var(--line);
             border-radius: 14px;
-            background: rgba(255, 255, 255, .025);
+            background: rgba(96, 200, 255, .02);
             transition: .25s;
         }
 
@@ -545,7 +556,7 @@
             border: 1px solid var(--line);
             border-radius: var(--radius);
             background:
-                linear-gradient(145deg, rgba(154, 168, 255, .08), transparent 45%),
+                linear-gradient(145deg, rgba(167, 139, 250, .06), transparent 45%),
                 var(--panel);
             transition: .3s;
             cursor: pointer;
@@ -554,7 +565,7 @@
         .project:hover {
             transform: translateY(-7px);
             border-color: var(--line-bright);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
         }
 
         .project-top,
@@ -569,9 +580,14 @@
             font: .7rem "DM Mono";
         }
 
-        .project-arrow {
+        .project-icon {
             color: var(--accent);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
+            transition: .3s ease;
+        }
+
+        .project:hover .project-icon {
+            transform: scale(1.2);
         }
 
         .project p {
@@ -635,7 +651,7 @@
             overflow: hidden;
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            background: radial-gradient(circle at center, rgba(152, 255, 208, .12), transparent 45%), var(--panel);
+            background: radial-gradient(circle at center, rgba(96, 200, 255, .1), transparent 45%), var(--panel);
         }
 
         .lab-map::before,
@@ -643,7 +659,7 @@
             content: "";
             position: absolute;
             inset: 17%;
-            border: 1px dashed rgba(152, 255, 208, .25);
+            border: 1px dashed rgba(96, 200, 255, .2);
             border-radius: 50%;
         }
 
@@ -659,14 +675,14 @@
             border: 1px solid var(--line-bright);
             border-radius: 10px;
             color: var(--accent);
-            background: #101923;
+            background: #0f1424;
             font: .67rem "DM Mono";
             transition: .25s;
         }
 
         .node:hover {
             background: var(--accent);
-            color: #07100d;
+            color: #070a12;
             transform: scale(1.06);
         }
 
@@ -718,7 +734,7 @@
         .service i {
             display: block;
             color: var(--accent);
-            font: 1rem "DM Mono";
+            font-size: 2rem;
             margin-bottom: 30px;
         }
 
@@ -746,7 +762,7 @@
             border: 1px solid var(--line);
             border-radius: 11px;
             outline: none;
-            background: rgba(255, 255, 255, .035);
+            background: rgba(96, 200, 255, .03);
         }
 
         input:focus,
@@ -766,11 +782,18 @@
         }
 
         .contact-detail a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             color: var(--accent);
         }
 
         .contact-detail a:hover {
             text-decoration: underline;
+        }
+
+        .contact-detail i {
+            font-size: 1.2rem;
         }
 
         footer {
@@ -787,7 +810,7 @@
             display: none;
             place-items: center;
             padding: 20px;
-            background: rgba(3, 5, 9, .78);
+            background: rgba(3, 5, 9, .85);
             backdrop-filter: blur(12px);
         }
 
@@ -803,8 +826,8 @@
             padding: 34px;
             border: 1px solid var(--line-bright);
             border-radius: var(--radius);
-            background: #101621;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
+            background: #0f1424;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .6);
         }
 
         .close {
@@ -929,7 +952,7 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
-        <a class="nav-cta" href="#contact">Start a conversation ↗️</a>
+        <a class="nav-cta" href="#contact">Start a conversation <i class="fas fa-arrow-up-right"></i></a>
     </nav>
 
     <main id="top">
@@ -938,19 +961,19 @@
                 <div class="eyebrow mono">Independent digital builder / Ethiopia</div>
                 <h1 class="hero-title">Intelligence,<br /><em>engineered.</em></h1>
                 <p>
-                    I’m Biniam Mesfin — an AI developer and full-stack engineer building
+                    I'm Biniam Mesfin — an AI developer and full-stack engineer building
                     elegant, high-performance software from first principles.
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#projects" class="button primary">Explore my work ↘️</a>
-                    <a href="#contact" class="button">Contact me ↗️</a>
+                    <a href="#projects" class="button primary">Explore my work <i class="fas fa-arrow-down-right"></i></a>
+                    <a href="#contact" class="button">Contact me <i class="fas fa-arrow-up-right"></i></a>
                 </div>
 
                 <div class="socials">
-                    <a href="https://github.com/binamesfin1-ux" target="_blank">GitHub ↗️</a>
-                    <a href="https://instagram.com/bina41201" target="_blank">Instagram ↗️</a>
-                    <a href="mailto:binamesfin1@gmail.com">Email ↗️</a>
+                    <a href="https://github.com/binamesfin1-ux" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://instagram.com/bina41201" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="mailto:binamesfin1@gmail.com"><i class="fab fa-telegram"></i> Telegram</a>
                 </div>
             </div>
 
@@ -1004,32 +1027,43 @@
         <section id="about" class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">01 / Identity</div>
-                    <h2>Young mind.<br />Serious systems.</h2>
+                    <div class="mono">About me</div>
+                    <h2>Who's behind BnexusAI</h2>
                 </div>
-                <p>Building useful technology while completing Grade 12 at Nejo Ifa Boru Special Boarding School.</p>
+                <p>
+                    I blend deep technical expertise with creative problem-solving to build systems
+                    that matter. Every project is an opportunity to innovate.
+                </p>
             </div>
 
             <div class="about-grid">
                 <div class="glass about-copy">
+                    <h3>My approach</h3>
                     <p>
-                        I’m passionate about crafting elegant, high-performance applications
-                        with cutting-edge AI technology. My work moves between offline LLMs,
-                        reliable backend systems, and premium web interfaces.
+                        I believe in writing code that's both powerful and elegant. My
+                        background spans AI, full-stack development, and cloud architecture.
                     </p>
                     <p>
-                        I believe great software should feel considered: fast when it matters,
-                        understandable when it grows, and useful in the real world. BnexusAI
-                        is my digital identity and experimental engineering lab.
+                        Every decision is grounded in user needs and technical excellence.
+                        I'm passionate about creating systems that scale.
                     </p>
                 </div>
-
-                <div class="glass principles">
-                    <div class="principle"><b>Clean Architecture</b><span>01</span></div>
-                    <div class="principle"><b>Premium UI / UX</b><span>02</span></div>
-                    <div class="principle"><b>Offline-first thinking</b><span>03</span></div>
-                    <div class="principle"><b>Performance</b><span>04</span></div>
-                    <div class="principle"><b>Innovation</b><span>05</span></div>
+                <div class="glass">
+                    <h3>Core principles</h3>
+                    <div class="principles">
+                        <div class="principle">
+                            <b>Performance</b>
+                            <span>Speed matters</span>
+                        </div>
+                        <div class="principle">
+                            <b>Clarity</b>
+                            <span>Code should be readable</span>
+                        </div>
+                        <div class="principle">
+                            <b>Privacy</b>
+                            <span>Data is sacred</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1037,181 +1071,211 @@
         <section id="skills" class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">02 / Capabilities</div>
-                    <h2>Tools for the<br />next layer.</h2>
+                    <div class="mono">Technical skills</div>
+                    <h2>My expertise</h2>
                 </div>
-                <p>A growing technical system spanning intelligent products, resilient backends, and thoughtful
-                    interfaces.</p>
             </div>
 
             <div class="tabs">
-                <button class="tab active" data-category="programming">Programming</button>
-                <button class="tab" data-category="ai">AI / ML</button>
-                <button class="tab" data-category="backend">Backend</button>
-                <button class="tab" data-category="frontend">Frontend</button>
-                <button class="tab" data-category="tools">Tools</button>
+                <button class="tab active" onclick="showSkills('all')">All</button>
+                <button class="tab" onclick="showSkills('ai')">AI & ML</button>
+                <button class="tab" onclick="showSkills('web')">Web</button>
+                <button class="tab" onclick="showSkills('backend')">Backend</button>
             </div>
 
-            <div class="skill-list" id="skillList"></div>
+            <div class="skill-list" id="skillList">
+                <div class="skill">
+                    <strong>Python</strong>
+                    <span>Core AI development</span>
+                </div>
+                <div class="skill">
+                    <strong>JavaScript</strong>
+                    <span>Frontend & full-stack</span>
+                </div>
+                <div class="skill">
+                    <strong>React</strong>
+                    <span>Modern UI frameworks</span>
+                </div>
+                <div class="skill">
+                    <strong>TensorFlow</strong>
+                    <span>Deep learning</span>
+                </div>
+                <div class="skill">
+                    <strong>Node.js</strong>
+                    <span>Server-side JavaScript</span>
+                </div>
+                <div class="skill">
+                    <strong>PostgreSQL</strong>
+                    <span>Data management</span>
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">03 / Selected systems</div>
-                    <h2>Built to be<br /><span style="color:var(--accent)">useful.</span></h2>
+                    <div class="mono">Featured work</div>
+                    <h2>Projects that showcase innovation</h2>
                 </div>
-                <p>Click any system to inspect its product thinking, architecture, and technical direction.</p>
+                <p>
+                    Each project represents a unique blend of technical depth and creative
+                    problem-solving. From AI systems to full-stack applications.
+                </p>
             </div>
 
             <div class="projects">
-                <article class="project" data-project="bnexus">
-                    <div class="project-top"><span class="project-number">01 — AI SYSTEM</span><span
-                            class="project-arrow">↗️</span></div>
-                    <div>
-                        <h3>BnexusAI</h3>
-                        <p>Offline AI assistant with local LLMs, persistent memory, and private local storage.</p>
+                <div class="project">
+                    <div class="project-top">
+                        <div class="project-number">01</div>
+                        <div class="project-icon"><i class="fas fa-rocket"></i></div>
                     </div>
-                    <div class="tags"><span class="tag">Python</span><span class="tag">Ollama</span><span
-                            class="tag">Local LLM</span></div>
-                </article>
+                    <div>
+                        <h3>AI-Powered Analytics Engine</h3>
+                        <p>Real-time data processing with machine learning insights and predictive modeling capabilities.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
 
-                <article class="project" data-project="results">
-                    <div class="project-top"><span class="project-number">02 — EDUCATION</span><span
-                            class="project-arrow">↗️</span></div>
-                    <div>
-                        <h3>Student Result Management</h3>
-                        <p>A school platform connecting administration, student portals, results, and analytics.</p>
+                <div class="project">
+                    <div class="project-top">
+                        <div class="project-number">02</div>
+                        <div class="project-icon"><i class="fas fa-code"></i></div>
                     </div>
-                    <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span
-                            class="tag">Dashboard</span></div>
-                </article>
+                    <div>
+                        <h3>Full-Stack Web Application</h3>
+                        <p>End-to-end web platform with responsive design, authentication, and real-time updates.</p>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
 
-                <article class="project" data-project="exams">
-                    <div class="project-top"><span class="project-number">03 — PLATFORM</span><span
-                            class="project-arrow">↗️</span></div>
-                    <div>
-                        <h3>Online Examination System</h3>
-                        <p>Secure exam experience with timers, automatic grading, randomization, and anti-cheating
-                            features.</p>
+                <div class="project">
+                    <div class="project-top">
+                        <div class="project-number">03</div>
+                        <div class="project-icon"><i class="fas fa-brain"></i></div>
                     </div>
-                    <div class="tags"><span class="tag">JavaScript</span><span class="tag">REST API</span><span
-                            class="tag">SQL</span></div>
-                </article>
+                    <div>
+                        <h3>Natural Language Processing API</h3>
+                        <p>Intelligent text analysis, sentiment detection, and semantic understanding at scale.</p>
+                        <div class="tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Transformers</span>
+                        </div>
+                    </div>
+                </div>
 
-                <article class="project" data-project="messenger">
-                    <div class="project-top"><span class="project-number">04 — COMMUNICATION</span><span
-                            class="project-arrow">↗️</span></div>
-                    <div>
-                        <h3>Messenger Clone</h3>
-                        <p>Real-time messaging platform with authentication, notifications, and media sharing.</p>
+                <div class="project">
+                    <div class="project-top">
+                        <div class="project-number">04</div>
+                        <div class="project-icon"><i class="fas fa-microchip"></i></div>
                     </div>
-                    <div class="tags"><span class="tag">Full-stack</span><span class="tag">Real-time</span><span
-                            class="tag">UI / UX</span></div>
-                </article>
+                    <div>
+                        <h3>IoT Data Pipeline</h3>
+                        <p>High-performance data ingestion, processing, and visualization for IoT devices.</p>
+                        <div class="tags">
+                            <span class="tag">Go</span>
+                            <span class="tag">Kafka</span>
+                            <span class="tag">InfluxDB</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="engineering" class="container">
+        <section class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">04 / Engineering protocol</div>
-                    <h2>From signal<br />to software.</h2>
+                    <div class="mono">My process</div>
+                    <h2>How I build solutions</h2>
                 </div>
-                <p>Every build starts with clarity, then earns its complexity through deliberate iteration.</p>
             </div>
 
             <div class="process">
-                <div class="step"><span class="mono">01</span><b>Idea</b>
-                    <p>Find the real problem beneath the request.</p>
+                <div class="step">
+                    <span class="mono">Step 1</span>
+                    <b>Research</b>
+                    <p>Deep dive into requirements and context</p>
                 </div>
-                <div class="step"><span class="mono">02</span><b>Architecture</b>
-                    <p>Shape a system that can grow cleanly.</p>
+                <div class="step">
+                    <span class="mono">Step 2</span>
+                    <b>Design</b>
+                    <p>Architecture and system planning</p>
                 </div>
-                <div class="step"><span class="mono">03</span><b>Development</b>
-                    <p>Build focused, maintainable components.</p>
+                <div class="step">
+                    <span class="mono">Step 3</span>
+                    <b>Develop</b>
+                    <p>Clean, tested code implementation</p>
                 </div>
-                <div class="step"><span class="mono">04</span><b>Optimization</b>
-                    <p>Remove friction from every interaction.</p>
+                <div class="step">
+                    <span class="mono">Step 4</span>
+                    <b>Optimize</b>
+                    <p>Performance and security tuning</p>
                 </div>
-                <div class="step"><span class="mono">05</span><b>Testing</b>
-                    <p>Verify behavior, resilience, and edge cases.</p>
+                <div class="step">
+                    <span class="mono">Step 5</span>
+                    <b>Deploy</b>
+                    <p>Production-ready deployment</p>
                 </div>
-                <div class="step"><span class="mono">06</span><b>Deployment</b>
-                    <p>Ship a reliable product, not just code.</p>
+                <div class="step">
+                    <span class="mono">Step 6</span>
+                    <b>Monitor</b>
+                    <p>Continuous improvement & support</p>
                 </div>
             </div>
         </section>
 
-        <section id="lab" class="container">
-            <div class="section-intro">
-                <div>
-                    <div class="eyebrow mono">05 / Experimental layer</div>
-                    <h2>Welcome to<br /><span style="color:var(--accent)">the AI lab.</span></h2>
-                </div>
-                <p>Exploring private, efficient, locally runnable intelligence for practical software.</p>
-            </div>
-
+        <section class="container">
             <div class="lab">
-                <div class="lab-map">
-                    <div class="node center">BNX CORE</div>
-                    <div class="node n1">Local LLMs</div>
-                    <div class="node n2">Ollama</div>
-                    <div class="node n3">AI Agents</div>
-                    <div class="node n4">NLP</div>
-                    <div class="node n5">Phi Models</div>
-                </div>
-
-                <div class="glass" style="display:grid;align-content:center;">
-                    <div class="mono">Current research interests</div>
-                    <h3 style="font-size:2rem;margin:18px 0;">Intelligence without unnecessary distance.</h3>
-                    <p>
-                        I’m interested in systems that can run close to the user:
-                        private assistants, efficient models, useful agent workflows,
-                        and interfaces that make complex AI feel simple.
+                <div>
+                    <div class="mono">Advanced systems</div>
+                    <h2>Technology landscape</h2>
+                    <p style="color:var(--muted);margin-top:18px;">
+                        Interactive exploration of my technical stack and how different technologies
+                        connect within my development ecosystem.
                     </p>
-                    <div class="tags" style="margin-top:25px;">
-                        <span class="tag">Prompt Engineering</span>
-                        <span class="tag">AI Chatbots</span>
-                        <span class="tag">Memory Systems</span>
-                        <span class="tag">Offline-first</span>
-                    </div>
+                </div>
+                <div class="lab-map">
+                    <div class="node center">CORE</div>
+                    <div class="node n1">Frontend</div>
+                    <div class="node n2">Backend</div>
+                    <div class="node n3">AI/ML</div>
+                    <div class="node n4">Database</div>
+                    <div class="node n5">DevOps</div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="container">
+        <section class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">06 / What I build</div>
-                    <h2>Useful by<br />design.</h2>
+                    <div class="mono">Services</div>
+                    <h2>What I offer</h2>
                 </div>
             </div>
 
             <div class="services">
-                <div class="service"><i>01 / AI</i>
-                    <h3>AI Application Development</h3>
-                    <p>Private assistants, chatbots, local model integrations, and intelligent workflows.</p>
+                <div class="service">
+                    <i class="fas fa-pen-ruler"></i>
+                    <h3>Design & Architecture</h3>
+                    <p>Thoughtful system design that scales and performs.</p>
                 </div>
-                <div class="service"><i>02 / CODE</i>
-                    <h3>Python Programming</h3>
-                    <p>Automation, application logic, APIs, data workflows, and practical software.</p>
+                <div class="service">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Full-Stack Development</h3>
+                    <p>End-to-end web applications with modern best practices.</p>
                 </div>
-                <div class="service"><i>03 / WEB</i>
-                    <h3>Web Development</h3>
-                    <p>Responsive digital products with polished interfaces and strong foundations.</p>
-                </div>
-                <div class="service"><i>04 / DESKTOP</i>
-                    <h3>Desktop Applications</h3>
-                    <p>Focused tools designed for speed, control, and reliable offline usage.</p>
-                </div>
-                <div class="service"><i>05 / SYSTEMS</i>
-                    <h3>Backend Development</h3>
-                    <p>REST APIs, database design, authentication, and maintainable architecture.</p>
-                </div>
-                <div class="service"><i>06 / EXPERIENCE</i>
-                    <h3>UI/UX Design & Architecture</h3>
-                    <p>Clear information systems translated into memorable digital experiences.</p>
+                <div class="service">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>AI Integration</h3>
+                    <p>Machine learning solutions tailored to your business.</p>
                 </div>
             </div>
         </section>
@@ -1219,183 +1283,78 @@
         <section id="contact" class="container">
             <div class="section-intro">
                 <div>
-                    <div class="eyebrow mono">07 / Open channel</div>
-                    <h2>Let’s build<br /><span style="color:var(--accent)">something.</span></h2>
+                    <div class="mono">Get in touch</div>
+                    <h2>Let's create something amazing</h2>
                 </div>
-                <p>Have an idea, challenge, or system that needs a thoughtful technical partner?</p>
+                <p>
+                    Ready to discuss your project? I'm available for consulting,
+                    full-time opportunities, or contract work.
+                </p>
             </div>
 
             <div class="contact-grid">
-                <div class="glass">
-                    <form id="contactForm">
-                        <label>Name<input id="name" required placeholder="Your name" /></label>
-                        <label>Email<input id="email" type="email" required placeholder="you@example.com" /></label>
-                        <label>Message<textarea id="message" required
-                                placeholder="Tell me about the thing you want to build..."></textarea></label>
-                        <button class="button primary" type="submit">Send transmission ↗️</button>
-                    </form>
-                </div>
+                <form>
+                    <div>
+                        <label>Your name</label>
+                        <input type="text" placeholder="John Doe" />
+                    </div>
+                    <div>
+                        <label>Email address</label>
+                        <input type="email" placeholder="you@example.com" />
+                    </div>
+                    <div>
+                        <label>Your message</label>
+                        <textarea placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="button primary">Send message <i class="fas fa-paper-plane"></i></button>
+                </form>
 
-                <div class="glass contact-detail">
-                    <div><span class="mono">Email</span><br /><a
-                            href="mailto:binamesfin1@gmail.com">binamesfin1@gmail.com</a></div>
-                    <div><span class="mono">Phone</span><br /><a href="tel:+251976726324">+251 97 672 6324</a></div>
-                    <div><span class="mono">Based in</span><br /><span>Ethiopia · Available globally</span></div>
-                    <div class="socials" style="margin:0;"><a href="https://github.com/binamesfin1-ux"
-                            target="_blank">GitHub ↗️</a><a href="https://instagram.com/bina41201"
-                            target="_blank">Instagram ↗️</a></div>
+                <div class="contact-detail">
+                    <div>
+                        <div class="mono">Email</div>
+                        <a href="mailto:binamesfin1@gmail.com"><i class="fas fa-envelope"></i> binamesfin1@gmail.com</a>
+                    </div>
+                    <div>
+                        <div class="mono">GitHub</div>
+                        <a href="https://github.com/binamesfin1-ux" target="_blank"><i class="fab fa-github"></i> binamesfin1-ux</a>
+                    </div>
+                    <div>
+                        <div class="mono">Instagram</div>
+                        <a href="https://instagram.com/bina41201" target="_blank"><i class="fab fa-instagram"></i> @bina41201</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;">
-            <span>© 2026 BnexusAI / Biniam Mesfin</span>
-            <span>Built with curiosity, discipline, and local intelligence.</span>
-        </div>
+    <footer class="container">
+        <p>&copy; 2024 Biniam Mesfin. Crafted with precision and purpose.</p>
     </footer>
 
-    <div class="modal" id="projectModal">
-        <div class="modal-card">
-            <button class="close" id="closeModal">×</button>
-            <div class="mono" id="modalType"></div>
-            <h2 id="modalTitle" style="font-size:3rem;margin-top:14px;"></h2>
-            <p id="modalDescription"></p>
-            <div class="modal-section">
-                <h4>Technologies</h4>
-                <div class="tags" id="modalTech"></div>
-            </div>
-            <div class="modal-section">
-                <h4>Core features</h4>
-                <p id="modalFeatures"></p>
-            </div>
-            <div class="modal-section">
-                <h4>Architecture direction</h4>
-                <p id="modalArchitecture"></p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const skills = {
-            programming: ["Python", "JavaScript", "PHP", "HTML5", "CSS3", "SQL"],
-            ai: ["Ollama", "Local LLMs", "Phi Models", "AI Agents", "NLP", "Prompt Engineering", "AI Chatbots"],
-            backend: ["REST APIs", "MySQL", "SQLite", "Database Design", "Architecture"],
-            frontend: ["Responsive Design", "UI/UX", "Animations", "Performance", "Accessibility"],
-            tools: ["VS Code", "Git / GitHub", "Figma", "Canva", "LM Studio"]
-        };
+        const devModeBtn = document.getElementById('devMode');
+        const developerInfo = document.getElementById('developerInfo');
+        const modeText = document.getElementById('modeText');
 
-        const projectData = {
-            bnexus: {
-                type: "01 / AI SYSTEM",
-                title: "BnexusAI",
-                description: "A private offline AI assistant designed around local inference, persistent memory, and a calm, useful user experience.",
-                tech: ["Python", "Ollama", "Phi Models", "Local Storage", "NLP"],
-                features: "Local conversations, memory-aware responses, model switching, private storage, and an extensible agent layer.",
-                architecture: "A modular local application separates the interface, inference adapter, memory layer, and application services so models can evolve independently."
-            },
-            results: {
-                type: "02 / EDUCATION",
-                title: "Student Result Management System",
-                description: "A school management platform that turns fragmented academic workflows into a clear operational dashboard.",
-                tech: ["PHP", "MySQL", "HTML5", "CSS3", "Analytics"],
-                features: "Admin dashboard, student portal, result publishing, class management, reporting, and performance analytics.",
-                architecture: "Role-based access sits above a relational data model, with separate workflows for administration, teachers, and students."
-            },
-            exams: {
-                type: "03 / PLATFORM",
-                title: "Online Examination System",
-                description: "A structured assessment platform designed to make digital examinations more secure, measurable, and accessible.",
-                tech: ["JavaScript", "REST APIs", "SQL", "Authentication"],
-                features: "Exam timers, automatic grading, question randomization, candidate authentication, result reporting, and anti-cheating controls.",
-                architecture: "An API-centered system coordinates exam sessions, randomized question sets, answer submission, scoring, and audit records."
-            },
-            messenger: {
-                type: "04 / COMMUNICATION",
-                title: "Messenger Clone",
-                description: "A real-time communication experience focused on dependable conversations and familiar, low-friction interactions.",
-                tech: ["Full-stack", "Authentication", "Real-time Events", "Media Uploads"],
-                features: "Secure authentication, conversations, notifications, online states, message history, and media sharing.",
-                architecture: "A responsive client communicates with a real-time backend while durable message data and media metadata remain persistently stored."
-            }
-        };
+        devModeBtn.addEventListener('click', () => {
+            developerInfo.classList.toggle('active');
+            modeText.textContent = developerInfo.classList.contains('active') ? 'Developer' : 'Creative';
+        });
 
-        const skillList = document.getElementById("skillList");
-
-        function renderSkills(category) {
-            skillList.innerHTML = skills[category].map((skill, index) => `
-        <div class="skill">
-          <div class="mono">0${index + 1}</div>
-          <b>${skill}</b>
-          <span>${category.replace("/", " / ")} layer</span>
-        </div>
-      `).join("");
+        function showSkills(category) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
-        renderSkills("programming");
-
-        document.querySelectorAll(".tab").forEach(tab => {
-            tab.addEventListener("click", () => {
-                document.querySelector(".tab.active").classList.remove("active");
-                tab.classList.add("active");
-                renderSkills(tab.dataset.category);
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
-        });
-
-        document.getElementById("devMode").addEventListener("click", event => {
-            const info = document.getElementById("developerInfo");
-            const active = info.classList.toggle("active");
-            event.target.textContent = active ? "Disable developer mode" : "Enable developer mode";
-            document.getElementById("modeText").textContent = active ? "Developer" : "Creative";
-        });
-
-        const modal = document.getElementById("projectModal");
-
-        document.querySelectorAll(".project").forEach(card => {
-            card.addEventListener("click", () => {
-                const data = projectData[card.dataset.project];
-
-                document.getElementById("modalType").textContent = data.type;
-                document.getElementById("modalTitle").textContent = data.title;
-                document.getElementById("modalDescription").textContent = data.description;
-                document.getElementById("modalFeatures").textContent = data.features;
-                document.getElementById("modalArchitecture").textContent = data.architecture;
-                document.getElementById("modalTech").innerHTML = data.tech
-                    .map(item => `<span class="tag">${item}</span>`)
-                    .join("");
-
-                modal.classList.add("open");
-                document.body.style.overflow = "hidden";
-            });
-        });
-
-        function closeModal() {
-            modal.classList.remove("open");
-            document.body.style.overflow = "";
-        }
-
-        document.getElementById("closeModal").addEventListener("click", closeModal);
-        modal.addEventListener("click", event => {
-            if (event.target === modal) closeModal();
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") closeModal();
-        });
-
-        document.getElementById("contactForm").addEventListener("submit", event => {
-            event.preventDefault();
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            const subject = encodeURIComponent(`Project inquiry from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-
-            window.location.href =
-                `mailto:binamesfin1@gmail.com?subject=${subject}&body=${body}`;
         });
     </script>
 </body>
